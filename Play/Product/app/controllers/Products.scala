@@ -10,8 +10,18 @@ import models.Product
   * Created by llxmedici on 7/28/16.
   */
 class Products @Inject() (val messagesApi: MessagesApi) extends Controller with I18nSupport {
+
   def list = Action { implicit request =>
     val products = Product.findAll
     Ok(views.html.list(products))
   }
+
+  def show(ean: Long) = Action {
+    implicit request =>
+      Product.findByEan(ean).map {
+        product =>
+          Ok(views.html.details(product))
+      }.getOrElse(NotFound)
+  }
+
 }
