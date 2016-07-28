@@ -5,7 +5,9 @@
 * object to insert into the body of the page.
 *@
 
-@(title: String)(content: Html)(implicit lang: Lang)
+@import play.api.i18n.Messages
+
+@(title: String)(content: Html)(implicit messages: Messages)
 <!DOCTYPE html>
 <html>
 <head>
@@ -17,14 +19,17 @@
 </head>
 <body>
 <div class="screenshot">
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner"><a class="brand" href="@routes.HomeController.index()">
-            "Product Catalog"
-        </a> </div>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar-inner">
+            <a class="brand" href="@routes.HomeController.index()">
+                @Messages("application.name")
+            </a>
+        </div>
     </div>
-</div>
-<div class="container">
-    @content
+    <div class="container">
+        @content
+        @debug()
+    </div>
 </div>
 </div>
 </body>

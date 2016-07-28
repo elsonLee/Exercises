@@ -1,5 +1,5 @@
-@(products: List[Product])(implicit lang: Lang)
-@main("Product catalog") {
+@(products: List[Product])(implicit messages: Messages)
+@main(Messages("Product catalog")) {
 <dl class="products">
     @for(product <- products) {
     <dt>@product.name</dt>
