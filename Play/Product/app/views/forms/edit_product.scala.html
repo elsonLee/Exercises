@@ -11,13 +11,14 @@
             <legend>
                 @Messages("products.details", Messages("products.new"))
             </legend>
-            @helper.inputText(productForm("ean"))
-            @helper.inputText(productForm("name"), '_label -> "Name", 'help -> "Product Name")
-            @helper.textarea(productForm("description"))
+            @helper.inputText(productForm("ean"), '_label -> "", 'placeholder -> "EAN")
+            @helper.inputText(productForm("name"), '_label -> "", 'placeholder -> "Product Name")
+            @helper.textarea(productForm("description"), '_label -> "", 'placeholder -> "Discription")
         </fieldset>
         <p>
-            <input type="submit" class="btn primary"
-                   value='@Messages("products.new.submit")'>
+            <button type="submit" class="btn btn-primary">
+                @Messages("products.new.submit")
+            </button>
         </p>
     }
 }
