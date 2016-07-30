@@ -18,7 +18,7 @@ class HomeController @Inject() extends Controller {
    * a path of `/`.
    */
   def index = Action {
-    Redirect(routes.Products.list())
+    Redirect(routes.ProductsController.list())
   }
 
 }
